@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="theme-group" content="theme-settings">
+    <meta name="theme-color" content="var(--header-background)">
+    <title>Settings</title>
+
+    <!-- Debug/DUMP method support -->
+    <script defer="" src="/shared/js/dump.js"></script>
+
+    <!-- Common style -->
+    <link rel="stylesheet" type="text/css" href="shared/style/headers.css">
+    <link rel="stylesheet" type="text/css" href="shared/style/status.css">
+    <link rel="stylesheet" type="text/css" href="shared/style/buttons.css">
+    <link rel="stylesheet" type="text/css" href="shared/style/input_areas.css">
+
+    <!-- Specific style -->
+    <link rel="stylesheet" type="text/css" href="style/lists.css">
+    <link rel="stylesheet" type="text/css" href="style/icons.css">
+    <link rel="stylesheet" type="text/css" href="style/settings.css">
+    <link rel="stylesheet" type="text/css" href="style/settings_large.css" data-device-type="tablet">
+    <link rel="stylesheet" type="text/css" href="style/settings_phone.css" data-device-type="phone">
+    <link rel="stylesheet" type="text/css" href="style/dialog.css">
+    <link rel="stylesheet" type="text/css" href="style/icc.css">
+    <!-- Panel Stylesheets
+    <link rel="stylesheet" type="text/css" href="shared/style/action_menu.css"/>
+    <link rel="stylesheet" type="text/css" href="shared/style/confirm.css"/>
+    <link rel="stylesheet" type="text/css" href="shared/style/progress_activity.css"/>
+    <link rel="stylesheet" type="text/css" href="style/homescreens.css"/>
+    <link rel="stylesheet" type="text/css" href="style/achievements.css"/>
+    <link rel="stylesheet" type="text/css" href="style/apps.css"/>
+    <link rel="stylesheet" type="text/css" href="style/screen_lock.css"/>
+    <link rel="stylesheet" type="text/css" href="style/simcard.css"/>
+    <link rel="stylesheet" type="text/css" href="style/updates.css"/>
+    <link rel="stylesheet" type="text/css" href="style/downloads.css"/>
+    <link rel="stylesheet" type="text/css" href="style/developer_service_workers.css"/>
+    <script defer="" src="shared/elements/gaia_buttons/script.js"></script>
+    <script defer="" src="shared/elements/gaia_confirm/script.js"></script>
+    -->
+
+    <!-- Shared resources
+    <link rel="resource" type="application/json" href="shared/resources/tz.json"/>
+    <link rel="resource" type="application/json" href="shared/resources/apn.json"/>
+    <link rel="resource" type="application/json" href="shared/resources/apn_tz.json"/>
+    <link rel="resource" type="application/json" href="shared/resources/languages.json"/>
+    <link rel="resource" type="application/json" href="shared/resources/media/ringtones/"/>
+    <link rel="resource" type="application/json" href="shared/resources/media/notifications/"/>
+    <link rel="resource" type="application/json" href="shared/resources/keyboard_layouts.json"/>
+    <link rel="resource" type="image/png" href="shared/resources/branding/privacy_sprite.png"/>
+    <link rel="resource" type="application/json" href="shared/js/search_providers.json"/>
+    -->
+
+    <!-- @include js_list.html -->
+
+    <!-- @include element_list.html -->
+</head>
+<body class="skin-organic uninit theme-settings">
+  <!--
+    - Lazy-Loading: to avoid parsing all settings panels before necessary, the
+    - HTML markup is included in a comment node and applied with `.innerHTML'
+    - when the sub-panel is loaded.
+    -
+    - When a panel includes <script> nodes, these scripts might require all
+    - sub-panels to be loaded to work properly. We rely on the panel ID to get
+    - its dependencies, e.g. the #wifi panel depends on all panels matching
+    - the « section[id^="wifi-"] » selector.
+    -
+    - Long story short: BE VERY CAREFUL WHEN CHANGING A SECTION ID!
+    -
+    - Regarding data-require-sub-panels: This is a temporary declarative way
+    - to say that a panel requires the all subpanels which match the pattern
+    - 'section[id^="' + panel.id + '-"]' to be loaded before loading.
+    - This is to be removed soon in bug 922658.
+    -->
+
+  <!--
+    - Note: the panels are stacked in reverse order on purpose - the main
+    - panel always comes last.  With this order, no 'z-index' rule is required
+    - to handle the panel transitions.
+    -->
+
+  <!-- @include panel_section.html -->
+
+  <!-- Warning Dialog :: Incompatible Settings :: USB Storage & USB Tethering & Wifi Tethering -->
+  <form data-type="confirm" role="dialog" class="incompatible-settings-dialog" hidden>
+    <section>
+      <h1 class="is-warning-head"></h1>
+      <p class="is-warning-message"></p>
+    </section>
+    <menu>
+      <button class="incompatible-settings-cancel-btn" data-l10n-id="cancel">Cancel</button>
+      <button class="incompatible-settings-ok-btn recommend" data-l10n-id="enable">Enable</button>
+    </menu>
+  </form>
+
+  <div class="settings-dialog-overlay" hidden></div>
+
+  <script src="js/startup.js"></script>
+</body>

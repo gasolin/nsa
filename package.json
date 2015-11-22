@@ -1,0 +1,25 @@
+{
+  "name": "nextsettingsarch",
+  "version": "1.0.0",
+  "description": "Next generation Settings Architecture (a.k.a NSA :p)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/nsa.git"
+  },
+  "keywords": [
+    "fxos"
+  ],
+  "author": "Fred Lin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/nsa/issues"
+  },
+  "homepage": "https://github.com/gasolin/nsa#readme",
+  "dependencies": {
+    "preprocess": "^3.0.2"
+  }
+}

@@ -1,0 +1,11 @@
+<head>
+  <title>Your App</title>
+
+  <script src="index.js"></script>
+  @include-static js_list.html
+</head>
+<body>
+  <p>
+  <!-- @include_static panel_section.html -->
+  </p>
+</body>
