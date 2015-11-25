@@ -1,4 +1,5 @@
-Plan for settings package architecture:
+----
+## use cases
 
 To fit connected device's need for Settings, we need fulfill several use cases:
 
@@ -21,8 +22,7 @@ To fit connected device's need for Settings, we need fulfill several use cases:
 (for usecase 6) NGA FE/BE? Or fork settings-core and reuse some Settings package architecture
 
 ----
-
-Plan of Settings package architecture:
+## Plan of Settings package architecture:
 
 1. package panel related code(html, js, css, test(optional)) in a single folder, with a manifest to describe the package id and the dependency
   - (ex: name: 'fxos-settings-bluetooth', dependency: ['fxos-module-bluetooth'])
