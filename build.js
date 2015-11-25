@@ -23,4 +23,3 @@ handle.preprocessFile(src, dest, {
   srcDir: './',
   srcEol: '\r\n'
 });
-// {:process.process.env}, function() {console.log('done')}, {type: 'js'}
