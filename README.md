@@ -1,5 +1,5 @@
 ----
-## use cases
+## Use Cases
 
 To fit connected device's need for Settings, we need fulfill several use cases:
 
@@ -26,6 +26,7 @@ To fit connected device's need for Settings, we need fulfill several use cases:
 
 1. package panel related code(html, js, css, test(optional)) in a single folder, with a manifest to describe the package id and the dependency
   - (ex: name: 'fxos-settings-bluetooth', dependency: ['fxos-module-bluetooth'])
+  - move rest of nonAMD modules to AMD for better package
 
 2. Generate replacable panel sets for each distribution
   - use [preprocess](https://github.com/jsoverson/preprocess) (require node build script support)
